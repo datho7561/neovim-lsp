@@ -30,6 +30,11 @@ A config for neovim to let you use it as an LSP client without much hassle.
 - `<space>lc`: open the dialog to display quick fixes for the problem reported
 - `<space>lt`: go to references of the symbol beneath the cursor
 - `<space>lf`: format the entire file
+6. To view what LSP capabilities neovim tells the language server it supports (by default),
+  run the following command:
+  ```
+  :lua print(vim.inspect(vim.lsp.protocol.make_client_capabilities()))
+  ```
 
 ## Setting up a Language Server
 1. Go to the [LSP config documentation](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md),
