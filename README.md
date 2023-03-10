@@ -97,8 +97,8 @@ should have details about this.
 - This configuration of neovim is very bare-bones.
   If you want to use neovim regularly, I'd highly recommend installing plugins for the following:
   - A fuzzy file picker and fuzzy finder (analogous to VS Code's `Ctrl+P` and `Ctrl+Shift+F`), such as [fzf.vim](https://github.com/junegunn/fzf.vim)
-  - A nicer status line, such as (lightline)[https://github.com/itchyny/lightline.vim]
-  - Something that lists all the currently open files, such as (lightlight-bufferline)[https://github.com/mengelbrecht/lightline-bufferline]
+  - A nicer status line, such as [lightline](https://github.com/itchyny/lightline.vim)
+  - Something that lists all the currently open files, such as [lightlight-bufferline](https://github.com/mengelbrecht/lightline-bufferline)
   - A git line change indicator, such as [gitgutter](https://github.com/airblade/vim-gitgutter)
   I'd also recommend creating normal mode keyboard shortcuts for anything you do regularly in neovim,
   using the following convention:
