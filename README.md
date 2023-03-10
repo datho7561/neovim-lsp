@@ -2,9 +2,11 @@
 A config for neovim to let you use it as an LSP client without much hassle.
 
 ## Prerequisites
-1. `git`: This is required for plugin management
-2. A recent version of neovim, such as `v0.8.0` or newer
-3. Basic knowledge of navigating and editing in vim/neovim is needed to use the LSP features effectively
+1. For now this will only work on Linux or macOS
+2. `git`: This is required for plugin management
+3. A recent version of neovim, such as `v0.8.0` or newer
+4. Basic knowledge of navigating and editing in vim/neovim is needed to use the LSP features effectively
+5. *OPTIONAL* you might need to `export TERM=xterm-256color` in `~/.bashrc` (or equivalent for other shells) in order for the colour theme to work
 
 ## Installation
 1. Download `init.vim` and place it in `~/.config/nvim/init.vim`
@@ -16,8 +18,18 @@ A config for neovim to let you use it as an LSP client without much hassle.
 ## Usage
 1. Set up the language server you want to use/test. See [Setting up a Language Server](#setting-up-a-language-server).
 2. Open a file that you want to test the language server in.
-3. When you are in Normal mode, the following key bindings are available:
-
+3. Diagnostics should be working out of the box.
+4. Completion should open when you are in insert mode in the places you expect.
+   You also should be able to manually trigger it with `<ctrl>+<space>`.
+   You can select which item you want to apply with the up/down arrow keys and apply with `<enter>`.
+5. When you are in Normal mode, the following key bindings are available:
+- `<space>ld`: go to definition of the symbol beneath the cursor
+- `<space>lD`: go the type definition of the symbol beneath the cursor
+- `<space>lh`: open hover on the symbol beneath the cursor
+- `<space>lr`: rename the symbol beneath the cursor
+- `<space>lc`: open the dialog to display quick fixes for the problem reported
+- `<space>lt`: go to references of the symbol beneath the cursor
+- `<space>lf`: format the entire file
 
 ## Setting up a Language Server
 1. Go to the [LSP config documentation](https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md),
@@ -72,3 +84,32 @@ should have details about this.
     - configs to get snippet-style completion working in the completion UI
 - `L3MON4D3/LuaSnip`
     - Convert the LSP snippets into something neovim understands
+
+## Limitations
+- neovim doesn't support everything in the LSP specification.
+  If a feature requires GUI elements to make sense,
+  that feature might not be provided,
+  since neovim is a terminal application.
+  If a feature is not provided, there might be a third party plugin that adds it.
+  You could also take a look into coding it yourself in lua,
+  since neovim exposes the API to handle sending and receiving requests from the server.
+  - If you figure out how to enable additonal LSP features, I will accept PRs for it.
+- This configuration of neovim is very bare-bones.
+  If you want to use neovim regularly, I'd highly recommend installing plugins for the following:
+  - A fuzzy file picker and fuzzy finder (analogous to VS Code's `Ctrl+P` and `Ctrl+Shift+F`), such as [fzf.vim](https://github.com/junegunn/fzf.vim)
+  - A nicer status line, such as (lightline)[https://github.com/itchyny/lightline.vim]
+  - Something that lists all the currently open files, such as (lightlight-bufferline)[https://github.com/mengelbrecht/lightline-bufferline]
+  - A git line change indicator, such as [gitgutter](https://github.com/airblade/vim-gitgutter)
+  I'd also recommend creating normal mode keyboard shortcuts for anything you do regularly in neovim,
+  using the following convention:
+  ```
+  <leader>na
+  |       ||
+  |       |> the letter representing the action to perform
+  |       > the "namespace" of the keybinding, so that you can group similar keybindings together
+  > the leader: in the init.vim I set it to <space>
+
+  examples:
+  <leader>sf --> [s]earch [f]ile, open the file finder
+  <leader>sl --> [s]earch [l]ine, open the grep tool
+  ```
