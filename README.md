@@ -100,6 +100,7 @@ should have details about this.
   - A nicer status line, such as [lightline](https://github.com/itchyny/lightline.vim)
   - Something that lists all the currently open files, such as [lightlight-bufferline](https://github.com/mengelbrecht/lightline-bufferline)
   - A git line change indicator, such as [gitgutter](https://github.com/airblade/vim-gitgutter)
+
   I'd also recommend creating normal mode keyboard shortcuts for anything you do regularly in neovim,
   using the following convention:
   ```
