@@ -1,4 +1,4 @@
-# neovim-lsp
+# neovim-lsp-config-starter
 A config for neovim to let you use it as an LSP client without much hassle.
 
 ## Prerequisites
