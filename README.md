@@ -10,10 +10,10 @@ A config for neovim to let you use it as an LSP client without much hassle.
 
 ## Installation
 1. Download `init.vim` and place it in `~/.config/nvim/init.vim`
-2. Open neovim using `nvim`. You might see some scripts running in the background, and there will be errors. Don't worry.
-3. Type `:PlugInstall`, then hit `Enter`
-4. Close neovim with `:q!`
-5. Reopen neovim. If everything has gone well, a colour theme should be applied.
+2. Open neovim using `nvim`. You will see some scripts running, and there will be errors.
+   Don't worry, this is just the plugins needed for LSP being installed.
+3. Once plugin installation is done, exit neovim with `:qa!`
+4. Reopen neovim. If everything has gone well, a colour theme should be applied.
 
 ## Usage
 1. Set up the language server you want to use/test. See [Setting up a Language Server](#setting-up-a-language-server).

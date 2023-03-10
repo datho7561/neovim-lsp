@@ -2,9 +2,9 @@
 
 " Install vim-plug, the neovim plugin manager used in this config,
 " if it's missing
-if empty(glob('~/.vim/autoload/plug.vim'))
-  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+  silent !sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
@@ -77,7 +77,8 @@ local on_attach = function(client, bufnr)
 end
 
 -- Use a loop to call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+-- map buffer local keybindings when the language server attaches.
+-- You need to install these servers before you can use them.
 local servers = {'eslint', 'tsserver', 'jsonls', 'rust_analyzer'}
 for _, lsp in ipairs(servers) do
   lspconfig[lsp].setup {
